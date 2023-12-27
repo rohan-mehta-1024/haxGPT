@@ -7,13 +7,15 @@ import torch
 import equinox as eqx
 import haliax as hax
 import haliax.nn as hnn
+from haliax import NamedArray
 
 from levanter.compat.torch_serialization import (
     StateDictSerializationMixin as Serializable,
+    StateDict,
     apply_prefix,
-    flatten_linear_layer,
+    flatten_linear_layers,
     stack_state_dict,
-    unflatten_linear_layer,
+    unflatten_linear_layers,
     unstack_state_dict,
 )
 
@@ -43,7 +45,7 @@ class GPT2Config:
         self.KeyPos   = self.Pos.alias('key_position')
 
     @classmethod
-    def get_pretrained_config(cls, model_type: str, dropout: float = 0.0) -> GPT2Config:
+    def get_pretrained_config(cls, model_type: str, dropout: float = 0.0) -> 'GPT2Config':
         assert model_type in {'gpt2', 'gpt2-medium', 'gpt2-large', 'gpt2-xl'}
         print(f'Loading pre-trained {model_type} weights...')
 
@@ -54,18 +56,18 @@ class GPT2Config:
             'gpt2-xl'     :  dict(num_layers=48, num_heads=25, hidden_dims=1600), # 1558M params
         }[model_type] | {'vocab_size' : 50257, 'dropout' : dropout}
 
-        return GPT2Config(**config_args, init_from=model_type) # type: ignore
+        return GPT2Config(**config_args)
 
 
 class CausalSelfAttention(eqx.Module, Serializable): 
     attn     : hnn.Linear
     proj     : hnn.Linear
     dropout  : hnn.Dropout
-    mask     : hax.NamedArray = eqx.static_field()
-    _scale_f : float          = eqx.static_field()
+    mask     : NamedArray = eqx.static_field() # not learnable
+    _scale_f : float      = eqx.static_field() # not learnable
 
     @staticmethod
-    def init(config: GPT2Config, key) -> CausalSelfAttention:
+    def init(config: GPT2Config, key) -> 'CausalSelfAttention':
         k1, k2   = jr.split(key, 2)
         Qkv      = hax.Axis('qkv', size=3) # generate queries, keys, and values all at once
 
@@ -94,85 +96,100 @@ class CausalSelfAttention(eqx.Module, Serializable):
             jnp.sqrt(config.HeadSize.size)
         )
 
-    def _remove_padding(self, padding_mask: hax.NamedArray) -> hax.NamedArray:
-        update_vector = hax.where(padding_mask, 0, 1).astype(jnp.float32)
-        return self.mask * update_vector
-  
     def __call__(
         self, 
-        x: hax.NamedArray, 
-        padding_mask: hax.NamedArray = None,
-        inference: bool = False, 
+        x: NamedArray, 
+        padding_mask: NamedArray = None,
         *, 
         key
-    ) -> hax.NamedArray:
-        qkv = self.attn(x).rearrange((..., 'qkv', 'heads', 'pos', 'head_size'))
-        q, k, v, = qkv.unbind('qkv')
+    ) -> NamedArray:
+        qkv = self.attn(x).rearrange((..., 'qkv', 'heads', 'position', 'head_size'))
+        q, k, v, = qkv.unbind('qkv')  # each of q, k, and v is of shape: [Heads, Pos, HeadSize] 
 
-        # rename `Pos` axis for keys and values
-        k = k.rename({'pos' : 'key_pos'})
-        v = v.rename({'pos' : 'key_pos'})
+        # rename `Pos` axis for keys and values (because both axes of q • k cannot have the same name)
+        k = k.rename({'position' : 'key_position'})
+        v = v.rename({'position' : 'key_position'})
 
-        scores  = hax.dot('head_size', q, k) # of shape: [..., Pos, KeyPos]
-        scores /= self._scale_f
+        scores  = hax.dot('head_size', q, k) # of shape: [..., Heads, Pos, KeyPos]
+        scores  /= self._scale_f
 
         if padding_mask is not None:
-            mask = self._remove_padding(padding_mask)
+            mask = self.mask * padding_mask
         else: mask = self.mask
 
-        masked_scores      = hax.where(mask, scores, -jnp.inf)
+        masked_scores      = hax.where(mask, scores, -jnp.inf) # cannot attend to tokens in the future
         normalized_scores  = hnn.softmax(masked_scores, axis='key_position')
-        regularized_scores = self.dropout(normalized_scores, inference, key=key)
+        regularized_scores = self.dropout(normalized_scores, key=key)
 
+        x = hax.dot('key_position', regularized_scores, v) # of shape: [..., Heads, Pos, HeadSize]
         # ==============================
-        # multiplying the output each head by its own matrix and then summing
+        # multiplying the output of each head by its own matrix and then summing
         # is equivalent to first concatenating the output of each head and then
         # multiplying by one big matrix, since each region of the concatenated
         # vector only interacts with a subset of the overall matrix
         # ==============================
-        x = hax.dot('key_position', regularized_scores, v)
-        x = self.projection(x) # of shape: [..., Pos, Embed]
+        x = self.proj(x) # of shape: [..., Pos, Embed]
         return x
 
     def _state_dict_key_map(self):
         return {'attn' : 'c_attn', 'proj' : 'c_proj'}
 
-    def from_state_dict(self, state_dict, prefix: str):
-        unflattened_attn = unflatten_linear_layer(
-            apply_prefix(prefix, 'c_attn'), 
-            state_dict, 
-            self.attn, 
-            None
-        )
+    def from_state_dict(self, state_dict: StateDict, prefix: Optional[str] = None):
+        # our c_attn is [embed] -> [3, heads, head_dim] and hf's is the flattened [embed] -> [3 * heads * head_dim]
+        # and our c_proj is [heads, head_dim] -> [embed] and hf's is the flattened [heads * head_dim] -> [embed]
+        # so we need to reshape the one in the dict before forwarding to the linear
+        # keep in mind that everything is vectorized in our implementation, so there's a leading num_layers dim
+        d = {}
+        d.update(unflatten_linear_layers(apply_prefix(prefix, "c_attn"), state_dict, self.attn, None))
+        d.update(unflatten_linear_layers(apply_prefix(prefix, "c_proj"), state_dict, self.proj, None))
+
+        return super().from_state_dict(d, prefix)
+
+    # def from_state_dict(self, state_dict, prefix: str):
+    #     unflattened_attn = unflatten_linear_layers(
+    #         prefix,#apply_prefix(prefix, 'c_attn'), 
+    #         state_dict, 
+    #         self.attn, 
+    #         None
+    #     )
         
-        unflattened_proj = unflatten_linear_layer(
-            apply_prefix(prefix, 'c_proj'), 
-            state_dict, 
-            self.proj, 
-            None
-        )
+    #     unflattened_proj = unflatten_linear_layers(
+    #         prefix,
+    #         #apply_prefix(prefix, 'c_proj'), 
+    #         state_dict, 
+    #         self.proj, 
+    #         None
+    #     )
 
-        unflattened_params = {**unflattened_attn, **unflattened_proj}
-        new_params         = super().from_state_dict(unflattened_params, prefix) # extract PyTree from unflattened params
-        return new_params
+    #     unflattened_params = {}#{**unflattened_attn, **unflattened_proj}
+    #     unflattened_params.update(unflattened_attn)
+    #     unflattened_params.update(unflattened_proj)
+    #     return super().from_state_dict(unflattened_params, prefix) # extract PyTree from unflattened params
 
-    def to_state_dict(self, state_dict, prefix: str):
-        super().update_state_dict(state_dict, prefix) # write all model params into state_dict
+    # def update_state_dict(self, state_dict, prefix: str):
+    #     new_dict={}
+    #     super().update_state_dict(new_dict, prefix) # write all model params into state_dict
 
-        flattened_attn = flatten_linear_layer( 
-            apply_prefix(prefix, 'c_attn'), 
-            self.c_attn, 
-            None
-        )
+    #     flattened_attn = flatten_linear_layers(apply_prefix(prefix, "c_attn"), self.attn, None)
+    #     flattened_proj = flatten_linear_layers(apply_prefix(prefix, "c_proj"), self.proj, None)
+    #     new_dict.update(flattened_attn)
+    #     new_dict.update(flattened_proj)
+    #     #new_dict.update({**flattened_attn, **flattened_proj}) # then update with flattened versions 
+    #     state_dict.update(new_dict)
+    #     return state_dict# | new_dict
 
-        flattened_proj = flatten_linear_layer(
-            apply_prefix(prefix, 'c_proj'), 
-            self.c_proj, 
-            None
-        )
+    def update_state_dict(self, state_dict: StateDict, prefix: Optional[str] = None) -> StateDict:
+        # need to undo the reshape we did in from_state_dict
+        # reminder that everything is vectorized
+        my_dict: StateDict = {}
+        super().update_state_dict(my_dict, prefix)
 
-        state_dict.update({**flattened_attn, **flattened_proj}) # then update with flattened versions 
+        my_dict.update(flatten_linear_layers(apply_prefix(prefix, "c_attn"), self.attn, None))
+        my_dict.update(flatten_linear_layers(apply_prefix(prefix, "c_proj"), self.proj, None))
+
+        state_dict.update(my_dict)
         return state_dict
+
 
 
 class MLP(eqx.Module, Serializable):
@@ -181,7 +198,7 @@ class MLP(eqx.Module, Serializable):
     dropout  : hnn.Dropout
 
     @staticmethod
-    def init(config: GPT2Config, key) -> MLP:
+    def init(config: GPT2Config, key) -> 'MLP':
         k1, k2 = jr.split(key, 2)
 
         proj_up = hnn.Linear.init(
@@ -201,17 +218,15 @@ class MLP(eqx.Module, Serializable):
         dropout = hnn.Dropout(config.dropout)
         return MLP(proj_up, proj_down, dropout)
 
-    def __call__(
-        self, 
-        x: hax.NamedArray, 
-        inference: bool = False, 
+    def __call__(self, 
+        x: NamedArray,
         *, 
         key
-    ) -> hax.NamedArray:
+    ) -> NamedArray:
         x = self.proj_up(x)
         x = hnn.gelu(x)
         x = self.proj_down(x)
-        x = self.dropout(x, inference, key=key)
+        x = self.dropout(x, key=key)
         return x
 
     def _state_dict_key_map(self):
@@ -225,7 +240,7 @@ class Block(eqx.Module):
     mlp : MLP
 
     @staticmethod
-    def init(config: GPT2Config, key) -> Block:
+    def init(config: GPT2Config, key) -> 'Block':
         k1, k2 = jr.split(key, 2)
 
         ln_1 = hnn.LayerNorm.init(config.Embed, use_bias=config.use_bias)
@@ -237,21 +252,20 @@ class Block(eqx.Module):
 
     def __call__(
         self, 
-        x: hax.NamedArray, 
-        padding_mask: hax.NamedArray = None,
-        inference: bool = False,
+        x: NamedArray, 
+        padding_mask: NamedArray = None,
         *,
         key
-    ) -> hax.NamedArray:
+    ) -> NamedArray:
         k1, k2 = jr.split(key, 2)
 
         x      = self.ln_1(x)
-        attn_x = self.attn(x, padding_mask, inference, key=k1)
-        x      = x + attn_x 
+        attn_x = self.attn(x, padding_mask, key=k1)
+        x      = x + attn_x # residual connection
 
         x      = self.ln_2(x)
-        ff_x   = self.mlp(x, inference, key=k2)
-        x      = x + ff_x
+        ff_x   = self.mlp(x, key=k2)
+        x      = x + ff_x # residual connection
         
         return x
 
@@ -263,13 +277,14 @@ class GPT2(eqx.Module, Serializable):
     ln_f               : hnn.LayerNorm
     blocks             : hnn.Stacked
     config             : GPT2Config = eqx.static_field()
+    inference          : bool       #= eqx.static_field()
 
     @staticmethod
-    def init(config: GPT2Config, key) -> GPT2:
+    def init(config: GPT2Config, key) -> 'GPT2':
         k1, k2, k3, k4 = jr.split(key, 4)
 
         tok_embedding_table = hnn.Embedding.init(config.Vocab, config.Embed, key=k1)
-        pos_embedding_table = hnn.Embedding.init(config.Pos,   config.Embed, key=k2)
+        pos_embedding_table = hnn.Embedding.init(config.Pos, config.Embed, key=k2)
 
         dropout = hnn.Dropout(config.dropout)
         ln_f    = hnn.LayerNorm.init(config.Embed, use_bias=config.use_bias)
@@ -290,26 +305,32 @@ class GPT2(eqx.Module, Serializable):
             dropout,  
             ln_f,
             blocks,
-            config
+            inference=False,
+            config=config
         )
 
     def __call__(
         self, 
         seq: hax.NamedArray, 
-        inference: bool = False, 
         *, 
         key
     ) -> hax.NamedArray:
-        padding_mask = seq == hax.full(self.config.Pos, -1)
 
-        tok_embs = self.token_embedding_table.embed(seq) 
-        pos_embs = self.position_embedding_table.embed(hax.arange(self.config.Pos))
-        x        = self.dropout(tok_embs + pos_embs, inference, key=key)
+        # ==============================
+        # input sequence will always be padded to a length of Pos, e.g., during 
+        # inference, so 
+        if self.inference:
+            seq_padding_mask  = (seq == hax.full(self.config.Pos, -1)).astype(jnp.int32)
+            attn_padding_mask = seq_padding_mask.broadcast_axis(self.config.KeyPos) 
+        else: attn_padding_mask = None
+
+        tok_embs = self.tok_embedding_table.embed(seq) 
+        pos_embs = self.pos_embedding_table.embed(hax.arange(self.config.Pos))
+        x        = self.dropout(tok_embs + pos_embs, key=key)
 
         x = self.blocks.fold(
             x, 
-            padding_mask, 
-            inference, 
+            None, #attn_padding_mask,
             key=jr.split(key, self.config.Layers.size)
         )
 
@@ -318,13 +339,13 @@ class GPT2(eqx.Module, Serializable):
         return logits
 
     def count_params(self, non_embedding: bool = True):
-        params = [
+        params = eqx.filter([ # to exclude boolean inference parameter to dropout and layernorm
             self.tok_embedding_table, 
             self.pos_embedding_table if non_embedding else None, 
             self.dropout, 
             self.ln_f, 
             self.blocks
-        ]
+        ], eqx.is_inexact_array_like) 
 
         leaves, _   = tree_flatten(params)
         param_count = sum([i.size for i in leaves])
@@ -332,10 +353,10 @@ class GPT2(eqx.Module, Serializable):
 
     def _pad(self, seq: jnp.ndarray) -> jnp.ndarray:
         """Left-pad the array with -1s to maximum context length"""
-        padded_array = jnp.pad(seq, (Block.size - len(seq), 0), constant_values=-1)
+        padded_array = jnp.pad(seq, (self.config.Pos.size - len(seq), 0), constant_values=-1)
         return padded_array
         
-    def generate(
+    def generate( #rewrite as a fold and jit for max efficiency?
         self,
         seq: jnp.ndarray,
         max_new_tokens: int,
@@ -348,7 +369,7 @@ class GPT2(eqx.Module, Serializable):
             Pos, Vocab = self.config.Pos, self.config.Vocab
 
             seq          = hax.named(self._pad(seq[-Pos.size:]), (Pos,))
-            logits       = self(seq, inference=True, key=key)
+            logits       = self(seq, key=key)
             final_logits = logits[Pos, -1, Vocab, :] / temperature # look at prediction from last token
 
             if top_k is not None:
@@ -362,12 +383,13 @@ class GPT2(eqx.Module, Serializable):
         return seq
 
     def estimate_mfu(self, fwdbwd_per_iter: int, dt: float) -> float:
+        """Compute model's flop utilization rate """
         N = self.count_params()
         L, H, Q, T = (
             self.config.num_layers, 
             self.config.num_heads,
-            self.config.hidden_dims // self.num_heads,
-            self.seq_len
+            self.config.hidden_dims // self.config.num_heads,
+            self.config.seq_len
         )
 
         flops_per_token  = 6*N + 12*L*H*Q*T # flops needed to compute one token
@@ -392,9 +414,21 @@ class GPT2(eqx.Module, Serializable):
         new_params       = super().from_state_dict(stacked_params, prefix=prefix) # extract PyTree from stacked params
         return new_params
 
-    def update_state_dict(self, state_dict, prefix: str):
-        super().update_state_dict(state_dict, prefix) # write all model params into state_dict
+    # def update_state_dict(self, state_dict, prefix: str):
+    #     new_dict = {}
+    #     super().update_state_dict(new_dict, prefix) # write all model params into state_dict
 
-        unstacked_params = unstack_state_dict(state_dict, prefix=apply_prefix(prefix, "h"))
-        state_dict.update(unstacked_params) # then then update with unstacked versions  
+    #     unstacked_params = unstack_state_dict(new_dict, prefix=apply_prefix(prefix, "h"))
+    #     #new_dict.update(unstacked_params) # then then update with unstacked versions  
+    #     return state_dict | unstacked_params
+
+    def update_state_dict(self, state_dict: StateDict, prefix: Optional[str] = None) -> StateDict:
+        # this method needs to "devectorize" the blocks, so that we have a list of blocks h.0.FOO, h.1.FOO, etc.
+        # first just do the normal thing with our own dict, which we'll post-process
+        my_state_dict: StateDict = {}
+        super().update_state_dict(my_state_dict, prefix)
+
+        stacked_dict = unstack_state_dict(my_state_dict, apply_prefix(prefix, "h"))
+        state_dict.update(stacked_dict)
+
         return state_dict

@@ -1,0 +1,30 @@
+
+Step: 0 | Average Train Loss: 4.25 | Average Val Loss: 4.24
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 418, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 415, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 370, in train
+    'train_key'    : self.train_key,
+                     ^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 175, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'GPT2Trainer' object has no attribute 'train_key'
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 418, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 415, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 370, in train
+    'train_key'    : self.train_key,
+                     ^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 175, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'GPT2Trainer' object has no attribute 'train_key'. Did you mean: 'train_step'?

@@ -1,0 +1,67 @@
+
+Step: 0 | Average Train Loss: 4.56 | Average Val Loss: 4.55
+step: 1, loss: 4.5433 time: 5810.94ms, mfu: 0.00%
+step: 2, loss: 4.5130 time: 2693.72ms, mfu: 0.00%
+step: 3, loss: 4.5483 time: 2416.07ms, mfu: 0.00%
+step: 4, loss: 4.5808 time: 520.41ms, mfu: 0.01%
+step: 5, loss: 4.5537 time: 505.60ms, mfu: 0.01%
+step: 6, loss: 4.5186 time: 508.27ms, mfu: 0.01%
+step: 7, loss: 4.5247 time: 558.87ms, mfu: 0.02%
+step: 8, loss: 4.5011 time: 585.18ms, mfu: 0.02%
+step: 9, loss: 4.5421 time: 561.92ms, mfu: 0.02%
+step: 10, loss: 4.4828 time: 601.93ms, mfu: 0.02%
+step: 11, loss: 4.4600 time: 610.99ms, mfu: 0.02%
+step: 12, loss: 4.4359 time: 548.06ms, mfu: 0.02%
+step: 13, loss: 4.4259 time: 512.50ms, mfu: 0.03%
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 418, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 415, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 380, in train
+    self.state, loss = self.train_step() #self.train_step(self.state)
+                       ^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 299, in train_step
+    model, opt_state, loss = self.update(self.model, self.opt_state, data_keys)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_jit.py", line 206, in __call__
+    return self._call(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_module.py", line 875, in __call__
+    return self.__func__(self.__self__, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_jit.py", line 200, in _call
+    out = self._cached(dynamic_donate, dynamic_nodonate, static)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/core.py", line 129, in tree_unflatten
+    @classmethod
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 418, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 415, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 380, in train
+    self.state, loss = self.train_step() #self.train_step(self.state)
+                       ^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 299, in train_step
+    model, opt_state, loss = self.update(self.model, self.opt_state, data_keys)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_jit.py", line 206, in __call__
+    return self._call(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_module.py", line 875, in __call__
+    return self.__func__(self.__self__, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_jit.py", line 200, in _call
+    out = self._cached(dynamic_donate, dynamic_nodonate, static)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/core.py", line 129, in tree_unflatten
+    @classmethod
+KeyboardInterrupt

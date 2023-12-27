@@ -1,0 +1,24 @@
+trainer:
+  unit_batch_size: 64 #12
+  eval_steps: 200 #20
+  log_interval: 1
+  train_steps: 5000 #3500
+  wandb_log: False #True
+  eval_interval: 250 #500
+  eval_steps: 20
+  always_save_ckpt: False
+  output_dir: 'test'
+
+model: 
+  seq_len: 256 #64
+  num_layers: 6 #4
+  num_heads: 6 #4
+  hidden_dims: 384 #128
+  vocab_size: 65
+  dropout: 0.2 #0.0
+
+optimizer: 
+  learning_rate: 1e-3
+  min_lr: 1e-4 
+  beta2: 0.99
+  warmup_ratio: 0.02

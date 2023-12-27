@@ -1,0 +1,28 @@
+2023-12-26 14:12:45,064 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Current SDK version is 0.15.9
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Configure stats pid to 75937
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Loading settings from /Users/rohanmehta/.config/wandb/settings
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Loading settings from /Users/rohanmehta/Desktop/ML Projects/GPT_nano/wandb/settings
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py'}
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:_log_setup():524] Logging user logs to /Users/rohanmehta/Desktop/ML Projects/GPT_nano/wandb/run-20231226_141245-sg29bpam/logs/debug.log
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:_log_setup():525] Logging internal logs to /Users/rohanmehta/Desktop/ML Projects/GPT_nano/wandb/run-20231226_141245-sg29bpam/logs/debug-internal.log
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:init():564] calling init triggers
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:init():571] wandb.init called with sweep_config: {}
+config: {'trainer': {'seed': 0, 'policy': {'param_dtype': <class 'jax.numpy.float32'>, 'compute_dtype': <class 'jax.numpy.float32'>, 'output_dtype': <class 'jax.numpy.float32'>}, 'data_dir': 'data/shakespeare', 'unit_batch_size': 12, 'train_steps': 2000, 'grad_accum_steps': 1, 'eval_steps': 20, 'eval_interval': 500, 'batch_axis': 'batch', 'fsdp_axis': 'embed', 'num_devices': 1, 'wandb_log': True, 'log_interval': 1, 'resume_from': None, 'always_save_ckpt': False, 'output_dir': ''}, 'optimizer': {'learning_rate': 0.0006, 'weight_decay': 0.1, 'beta1': 0.9, 'beta2': 0.95, 'warmup_ratio': 0.1, 'min_lr': 6e-05, 'grad_clip': 1.0}, 'model': {'seq_len': 64, 'vocab_size': 65, 'num_layers': 4, 'num_heads': 4, 'hidden_dims': 128, 'dropout': 0.0, 'use_bias': True}}
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:init():613] starting backend
+2023-12-26 14:12:45,065 INFO    MainThread:75937 [wandb_init.py:init():617] setting up manager
+2023-12-26 14:12:45,067 INFO    MainThread:75937 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-12-26 14:12:45,069 INFO    MainThread:75937 [wandb_init.py:init():623] backend started and connected
+2023-12-26 14:12:45,078 INFO    MainThread:75937 [wandb_init.py:init():714] updated telemetry
+2023-12-26 14:12:45,102 INFO    MainThread:75937 [wandb_init.py:init():747] communicating run to backend with 60.0 second timeout
+2023-12-26 14:12:45,493 INFO    MainThread:75937 [wandb_run.py:_on_init():2180] communicating current version
+2023-12-26 14:12:45,624 INFO    MainThread:75937 [wandb_run.py:_on_init():2189] got version response upgrade_message: "wandb version 0.16.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-12-26 14:12:45,624 INFO    MainThread:75937 [wandb_init.py:init():798] starting run threads in backend
+2023-12-26 14:12:47,789 INFO    MainThread:75937 [wandb_run.py:_console_start():2159] atexit reg
+2023-12-26 14:12:47,789 INFO    MainThread:75937 [wandb_run.py:_redirect():2014] redirect: wrap_raw
+2023-12-26 14:12:47,789 INFO    MainThread:75937 [wandb_run.py:_redirect():2079] Wrapping output streams.
+2023-12-26 14:12:47,789 INFO    MainThread:75937 [wandb_run.py:_redirect():2104] Redirects installed.
+2023-12-26 14:12:47,790 INFO    MainThread:75937 [wandb_init.py:init():839] run started, returning control to user process
+2023-12-26 14:13:04,630 WARNING MsgRouterThr:75937 [router.py:message_loop():77] message_loop has been closed

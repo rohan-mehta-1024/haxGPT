@@ -1,0 +1,28 @@
+/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/nn/__init__.py:159: UserWarning: target_y has dtype uint8, which is not a floating point type. This is probably a mistake.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 353, in train
+    torch.save(ckpt, f'{self.trainer_config.output_dir}/ckpt.pt')
+    ^^^^^
+NameError: name 'torch' is not defined
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 353, in train
+    torch.save(ckpt, f'{self.trainer_config.output_dir}/ckpt.pt')
+    ^^^^^
+NameError: name 'torch' is not defined
+Step: 0 | Average Train Loss: 200634496.00 | Average Val Loss: 195769936.00
+Saving checkpoint to

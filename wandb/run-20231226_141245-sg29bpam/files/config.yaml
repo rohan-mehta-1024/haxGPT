@@ -1,0 +1,80 @@
+wandb_version: 1
+
+trainer:
+  desc: null
+  value:
+    seed: 0
+    policy:
+      param_dtype: jax.numpy.float32
+      compute_dtype: jax.numpy.float32
+      output_dtype: jax.numpy.float32
+    data_dir: data/shakespeare
+    unit_batch_size: 12
+    train_steps: 2000
+    grad_accum_steps: 1
+    eval_steps: 20
+    eval_interval: 500
+    batch_axis: batch
+    fsdp_axis: embed
+    num_devices: 1
+    wandb_log: true
+    log_interval: 1
+    resume_from: null
+    always_save_ckpt: false
+    output_dir: ''
+optimizer:
+  desc: null
+  value:
+    learning_rate: 0.0006
+    weight_decay: 0.1
+    beta1: 0.9
+    beta2: 0.95
+    warmup_ratio: 0.1
+    min_lr: 6.0e-05
+    grad_clip: 1.0
+model:
+  desc: null
+  value:
+    seq_len: 64
+    vocab_size: 65
+    num_layers: 4
+    num_heads: 4
+    hidden_dims: 128
+    dropout: 0.0
+    use_bias: true
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.4
+    cli_version: 0.15.9
+    framework: huggingface
+    huggingface_version: 4.31.0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1703617965.069983
+    t:
+      1:
+      - 1
+      - 11
+      - 12
+      - 30
+      - 49
+      - 51
+      - 55
+      2:
+      - 1
+      - 11
+      - 12
+      - 30
+      - 49
+      - 51
+      - 55
+      3:
+      - 16
+      - 23
+      4: 3.11.4
+      5: 0.15.9
+      6: 4.31.0
+      8:
+      - 4
+      - 5

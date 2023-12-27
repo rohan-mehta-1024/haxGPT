@@ -1,0 +1,37 @@
+{
+    "os": "macOS-13.5.1-arm64-arm-64bit",
+    "python": "3.11.4",
+    "heartbeatAt": "2023-12-19T22:10:25.782674",
+    "startedAt": "2023-12-19T22:10:25.422608",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config_path",
+        "config/shakespeare_char_cpu.yaml"
+    ],
+    "state": "running",
+    "program": "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/rohan-mehta-1024/equinox-gpt-nano.git",
+        "commit": "9e03691b80cdd99f007bcf5ae32b6322d8e9efd3"
+    },
+    "email": null,
+    "root": "/Users/rohanmehta/Desktop/ML Projects/GPT_nano",
+    "host": "Rohans-MacBook-Air.local",
+    "username": "rohanmehta",
+    "executable": "/Users/rohanmehta/anaconda3/envs/jax/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "disk": {
+        "total": 460.4317207336426,
+        "used": 372.3382682800293
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 8.0
+    }
+}

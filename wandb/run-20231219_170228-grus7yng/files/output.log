@@ -1,0 +1,33 @@
+/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/nn/__init__.py:159: UserWarning: target_y has dtype uint8, which is not a floating point type. This is probably a mistake.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 346, in train
+    sd   = self.model.update_state_dict(prefix='transformer')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_module.py", line 875, in __call__
+    return self.__func__(self.__self__, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GPT2.update_state_dict() missing 1 required positional argument: 'state_dict'
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 346, in train
+    sd   = self.model.update_state_dict(prefix='transformer')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/equinox/_module.py", line 875, in __call__
+    return self.__func__(self.__self__, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GPT2.update_state_dict() missing 1 required positional argument: 'state_dict'
+Step: 0 | Average Train Loss: 200634496.00 | Average Val Loss: 195769936.00

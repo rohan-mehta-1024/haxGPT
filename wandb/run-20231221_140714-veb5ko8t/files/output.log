@@ -1,0 +1,650 @@
+5.656854
+5.656854
+/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/nn/__init__.py:159: UserWarning: target_y has dtype uint8, which is not a floating point type. This is probably a mistake.
+  warnings.warn(
+Step: 0 | Average Train Loss: nan | Average Val Loss: nan
+Saving checkpoint to
+step: 1, loss: nan time: 2421.96ms, mfu: 0.00%
+step: 2, loss: nan time: 2389.94ms, mfu: 0.00%
+step: 3, loss: nan time: 52.79ms, mfu: 0.00%
+step: 4, loss: nan time: 49.94ms, mfu: 0.01%
+step: 5, loss: nan time: 52.24ms, mfu: 0.01%
+step: 6, loss: nan time: 51.06ms, mfu: 0.01%
+step: 7, loss: nan time: 50.61ms, mfu: 0.01%
+step: 8, loss: nan time: 55.60ms, mfu: 0.01%
+step: 9, loss: nan time: 53.31ms, mfu: 0.01%
+step: 10, loss: nan time: 57.25ms, mfu: 0.01%
+step: 11, loss: nan time: 59.35ms, mfu: 0.01%
+step: 12, loss: nan time: 60.09ms, mfu: 0.02%
+step: 13, loss: nan time: 119.37ms, mfu: 0.02%
+step: 14, loss: nan time: 62.42ms, mfu: 0.02%
+step: 15, loss: nan time: 54.43ms, mfu: 0.02%
+step: 16, loss: nan time: 54.91ms, mfu: 0.02%
+step: 17, loss: nan time: 56.55ms, mfu: 0.02%
+step: 18, loss: nan time: 55.05ms, mfu: 0.02%
+step: 19, loss: nan time: 53.78ms, mfu: 0.02%
+step: 20, loss: nan time: 54.04ms, mfu: 0.02%
+step: 21, loss: nan time: 51.81ms, mfu: 0.02%
+step: 22, loss: nan time: 51.55ms, mfu: 0.02%
+step: 23, loss: nan time: 51.35ms, mfu: 0.02%
+step: 24, loss: nan time: 51.02ms, mfu: 0.02%
+step: 25, loss: nan time: 59.85ms, mfu: 0.02%
+step: 26, loss: nan time: 51.47ms, mfu: 0.02%
+step: 27, loss: nan time: 48.34ms, mfu: 0.02%
+step: 28, loss: nan time: 50.82ms, mfu: 0.02%
+step: 29, loss: nan time: 50.23ms, mfu: 0.02%
+step: 30, loss: nan time: 51.59ms, mfu: 0.02%
+step: 31, loss: nan time: 51.47ms, mfu: 0.02%
+step: 32, loss: nan time: 53.72ms, mfu: 0.02%
+step: 33, loss: nan time: 50.83ms, mfu: 0.02%
+step: 34, loss: nan time: 50.70ms, mfu: 0.02%
+step: 35, loss: nan time: 52.16ms, mfu: 0.02%
+step: 36, loss: nan time: 50.75ms, mfu: 0.02%
+step: 37, loss: nan time: 50.54ms, mfu: 0.02%
+step: 38, loss: nan time: 50.85ms, mfu: 0.02%
+step: 39, loss: nan time: 51.08ms, mfu: 0.02%
+step: 40, loss: nan time: 51.45ms, mfu: 0.02%
+step: 41, loss: nan time: 50.24ms, mfu: 0.02%
+step: 42, loss: nan time: 50.65ms, mfu: 0.02%
+step: 43, loss: nan time: 53.35ms, mfu: 0.02%
+step: 44, loss: nan time: 57.99ms, mfu: 0.02%
+step: 45, loss: nan time: 55.91ms, mfu: 0.02%
+step: 46, loss: nan time: 53.80ms, mfu: 0.02%
+step: 47, loss: nan time: 53.70ms, mfu: 0.02%
+step: 48, loss: nan time: 52.71ms, mfu: 0.02%
+step: 49, loss: nan time: 55.10ms, mfu: 0.02%
+step: 50, loss: nan time: 54.10ms, mfu: 0.02%
+step: 51, loss: nan time: 52.82ms, mfu: 0.02%
+step: 52, loss: nan time: 51.91ms, mfu: 0.02%
+step: 53, loss: nan time: 52.50ms, mfu: 0.02%
+step: 54, loss: nan time: 52.09ms, mfu: 0.02%
+step: 55, loss: nan time: 52.16ms, mfu: 0.02%
+step: 56, loss: nan time: 51.39ms, mfu: 0.02%
+step: 57, loss: nan time: 53.81ms, mfu: 0.02%
+step: 58, loss: nan time: 54.62ms, mfu: 0.02%
+step: 59, loss: nan time: 57.40ms, mfu: 0.02%
+step: 60, loss: nan time: 55.33ms, mfu: 0.02%
+step: 61, loss: nan time: 58.35ms, mfu: 0.02%
+step: 62, loss: nan time: 61.74ms, mfu: 0.02%
+step: 63, loss: nan time: 60.15ms, mfu: 0.02%
+step: 64, loss: nan time: 55.60ms, mfu: 0.02%
+step: 65, loss: nan time: 54.83ms, mfu: 0.02%
+step: 66, loss: nan time: 53.21ms, mfu: 0.02%
+step: 67, loss: nan time: 50.68ms, mfu: 0.02%
+step: 68, loss: nan time: 52.10ms, mfu: 0.02%
+step: 69, loss: nan time: 51.29ms, mfu: 0.02%
+step: 70, loss: nan time: 57.53ms, mfu: 0.02%
+step: 71, loss: nan time: 55.50ms, mfu: 0.02%
+step: 72, loss: nan time: 51.54ms, mfu: 0.02%
+step: 73, loss: nan time: 50.50ms, mfu: 0.02%
+step: 74, loss: nan time: 51.29ms, mfu: 0.02%
+step: 75, loss: nan time: 53.13ms, mfu: 0.02%
+step: 76, loss: nan time: 53.70ms, mfu: 0.02%
+step: 77, loss: nan time: 55.00ms, mfu: 0.02%
+step: 78, loss: nan time: 54.06ms, mfu: 0.02%
+step: 79, loss: nan time: 51.55ms, mfu: 0.02%
+step: 80, loss: nan time: 50.95ms, mfu: 0.02%
+step: 81, loss: nan time: 51.03ms, mfu: 0.02%
+step: 82, loss: nan time: 50.51ms, mfu: 0.02%
+step: 83, loss: nan time: 50.25ms, mfu: 0.02%
+step: 84, loss: nan time: 50.49ms, mfu: 0.02%
+step: 85, loss: nan time: 50.01ms, mfu: 0.02%
+step: 86, loss: nan time: 50.67ms, mfu: 0.02%
+step: 87, loss: nan time: 50.57ms, mfu: 0.02%
+step: 88, loss: nan time: 50.63ms, mfu: 0.03%
+step: 89, loss: nan time: 51.21ms, mfu: 0.03%
+step: 90, loss: nan time: 51.55ms, mfu: 0.03%
+step: 91, loss: nan time: 53.76ms, mfu: 0.02%
+step: 92, loss: nan time: 54.11ms, mfu: 0.02%
+step: 93, loss: nan time: 52.88ms, mfu: 0.02%
+step: 94, loss: nan time: 53.15ms, mfu: 0.02%
+step: 95, loss: nan time: 50.26ms, mfu: 0.02%
+step: 96, loss: nan time: 49.27ms, mfu: 0.02%
+step: 97, loss: nan time: 49.52ms, mfu: 0.03%
+step: 98, loss: nan time: 50.81ms, mfu: 0.03%
+step: 99, loss: nan time: 51.25ms, mfu: 0.03%
+step: 100, loss: nan time: 50.39ms, mfu: 0.03%
+step: 101, loss: nan time: 50.21ms, mfu: 0.03%
+step: 102, loss: nan time: 50.63ms, mfu: 0.03%
+step: 103, loss: nan time: 50.73ms, mfu: 0.03%
+step: 104, loss: nan time: 51.78ms, mfu: 0.03%
+step: 105, loss: nan time: 53.21ms, mfu: 0.03%
+step: 106, loss: nan time: 60.55ms, mfu: 0.02%
+step: 107, loss: nan time: 54.22ms, mfu: 0.02%
+step: 108, loss: nan time: 55.98ms, mfu: 0.02%
+step: 109, loss: nan time: 54.68ms, mfu: 0.02%
+step: 110, loss: nan time: 56.43ms, mfu: 0.02%
+step: 111, loss: nan time: 53.74ms, mfu: 0.02%
+step: 112, loss: nan time: 56.52ms, mfu: 0.02%
+step: 113, loss: nan time: 52.12ms, mfu: 0.02%
+step: 114, loss: nan time: 53.22ms, mfu: 0.02%
+step: 115, loss: nan time: 55.28ms, mfu: 0.02%
+step: 116, loss: nan time: 54.87ms, mfu: 0.02%
+step: 117, loss: nan time: 53.20ms, mfu: 0.02%
+step: 118, loss: nan time: 53.31ms, mfu: 0.02%
+step: 119, loss: nan time: 51.95ms, mfu: 0.02%
+step: 120, loss: nan time: 52.92ms, mfu: 0.02%
+step: 121, loss: nan time: 52.82ms, mfu: 0.02%
+step: 122, loss: nan time: 52.03ms, mfu: 0.02%
+step: 123, loss: nan time: 52.66ms, mfu: 0.02%
+step: 124, loss: nan time: 51.97ms, mfu: 0.02%
+step: 125, loss: nan time: 52.14ms, mfu: 0.02%
+step: 126, loss: nan time: 52.60ms, mfu: 0.02%
+step: 127, loss: nan time: 51.08ms, mfu: 0.02%
+step: 128, loss: nan time: 50.93ms, mfu: 0.02%
+step: 129, loss: nan time: 50.66ms, mfu: 0.02%
+step: 130, loss: nan time: 51.48ms, mfu: 0.02%
+step: 131, loss: nan time: 52.17ms, mfu: 0.02%
+step: 132, loss: nan time: 50.60ms, mfu: 0.02%
+step: 133, loss: nan time: 50.93ms, mfu: 0.02%
+step: 134, loss: nan time: 52.02ms, mfu: 0.02%
+step: 135, loss: nan time: 51.58ms, mfu: 0.02%
+step: 136, loss: nan time: 50.66ms, mfu: 0.02%
+step: 137, loss: nan time: 52.38ms, mfu: 0.02%
+step: 138, loss: nan time: 51.84ms, mfu: 0.02%
+step: 139, loss: nan time: 54.30ms, mfu: 0.02%
+step: 140, loss: nan time: 53.05ms, mfu: 0.02%
+step: 141, loss: nan time: 52.59ms, mfu: 0.02%
+step: 142, loss: nan time: 52.53ms, mfu: 0.02%
+step: 143, loss: nan time: 54.97ms, mfu: 0.02%
+step: 144, loss: nan time: 51.20ms, mfu: 0.02%
+step: 145, loss: nan time: 51.72ms, mfu: 0.02%
+step: 146, loss: nan time: 52.40ms, mfu: 0.02%
+step: 147, loss: nan time: 52.21ms, mfu: 0.02%
+step: 148, loss: nan time: 52.16ms, mfu: 0.02%
+step: 149, loss: nan time: 53.87ms, mfu: 0.02%
+step: 150, loss: nan time: 53.16ms, mfu: 0.02%
+step: 151, loss: nan time: 53.89ms, mfu: 0.02%
+step: 152, loss: nan time: 59.36ms, mfu: 0.02%
+step: 153, loss: nan time: 55.67ms, mfu: 0.02%
+step: 154, loss: nan time: 53.77ms, mfu: 0.02%
+step: 155, loss: nan time: 54.43ms, mfu: 0.02%
+step: 156, loss: nan time: 55.74ms, mfu: 0.02%
+step: 157, loss: nan time: 55.87ms, mfu: 0.02%
+step: 158, loss: nan time: 55.98ms, mfu: 0.02%
+step: 159, loss: nan time: 56.02ms, mfu: 0.02%
+step: 160, loss: nan time: 52.07ms, mfu: 0.02%
+step: 161, loss: nan time: 52.21ms, mfu: 0.02%
+step: 162, loss: nan time: 51.30ms, mfu: 0.02%
+step: 163, loss: nan time: 50.72ms, mfu: 0.02%
+step: 164, loss: nan time: 50.92ms, mfu: 0.02%
+step: 165, loss: nan time: 51.67ms, mfu: 0.02%
+step: 166, loss: nan time: 51.44ms, mfu: 0.02%
+step: 167, loss: nan time: 51.80ms, mfu: 0.02%
+step: 168, loss: nan time: 51.30ms, mfu: 0.02%
+step: 169, loss: nan time: 51.80ms, mfu: 0.02%
+step: 170, loss: nan time: 51.48ms, mfu: 0.02%
+step: 171, loss: nan time: 51.13ms, mfu: 0.02%
+step: 172, loss: nan time: 50.48ms, mfu: 0.02%
+step: 173, loss: nan time: 50.74ms, mfu: 0.02%
+step: 174, loss: nan time: 51.05ms, mfu: 0.02%
+step: 175, loss: nan time: 50.65ms, mfu: 0.02%
+step: 176, loss: nan time: 50.33ms, mfu: 0.03%
+step: 177, loss: nan time: 50.61ms, mfu: 0.03%
+step: 178, loss: nan time: 50.17ms, mfu: 0.03%
+step: 179, loss: nan time: 51.20ms, mfu: 0.03%
+step: 180, loss: nan time: 51.05ms, mfu: 0.03%
+step: 181, loss: nan time: 51.50ms, mfu: 0.03%
+step: 182, loss: nan time: 52.32ms, mfu: 0.03%
+step: 183, loss: nan time: 51.13ms, mfu: 0.03%
+step: 184, loss: nan time: 51.27ms, mfu: 0.03%
+step: 185, loss: nan time: 50.69ms, mfu: 0.03%
+step: 186, loss: nan time: 51.12ms, mfu: 0.03%
+step: 187, loss: nan time: 102.80ms, mfu: 0.02%
+step: 188, loss: nan time: 51.30ms, mfu: 0.02%
+step: 189, loss: nan time: 50.73ms, mfu: 0.02%
+step: 190, loss: nan time: 51.02ms, mfu: 0.02%
+step: 191, loss: nan time: 51.07ms, mfu: 0.02%
+step: 192, loss: nan time: 52.68ms, mfu: 0.02%
+step: 193, loss: nan time: 51.84ms, mfu: 0.02%
+step: 194, loss: nan time: 54.04ms, mfu: 0.02%
+step: 195, loss: nan time: 52.70ms, mfu: 0.02%
+step: 196, loss: nan time: 51.57ms, mfu: 0.02%
+step: 197, loss: nan time: 52.35ms, mfu: 0.02%
+step: 198, loss: nan time: 55.87ms, mfu: 0.02%
+step: 199, loss: nan time: 56.75ms, mfu: 0.02%
+step: 200, loss: nan time: 57.47ms, mfu: 0.02%
+step: 201, loss: nan time: 53.86ms, mfu: 0.02%
+step: 202, loss: nan time: 56.56ms, mfu: 0.02%
+step: 203, loss: nan time: 57.15ms, mfu: 0.02%
+step: 204, loss: nan time: 53.29ms, mfu: 0.02%
+step: 205, loss: nan time: 54.48ms, mfu: 0.02%
+step: 206, loss: nan time: 50.70ms, mfu: 0.02%
+step: 207, loss: nan time: 50.22ms, mfu: 0.02%
+step: 208, loss: nan time: 50.85ms, mfu: 0.02%
+step: 209, loss: nan time: 49.96ms, mfu: 0.02%
+step: 210, loss: nan time: 50.97ms, mfu: 0.02%
+step: 211, loss: nan time: 51.91ms, mfu: 0.02%
+step: 212, loss: nan time: 51.44ms, mfu: 0.02%
+step: 213, loss: nan time: 51.61ms, mfu: 0.02%
+step: 214, loss: nan time: 50.71ms, mfu: 0.02%
+step: 215, loss: nan time: 51.25ms, mfu: 0.02%
+step: 216, loss: nan time: 50.87ms, mfu: 0.02%
+step: 217, loss: nan time: 50.58ms, mfu: 0.02%
+step: 218, loss: nan time: 53.46ms, mfu: 0.02%
+step: 219, loss: nan time: 53.09ms, mfu: 0.02%
+step: 220, loss: nan time: 51.46ms, mfu: 0.02%
+step: 221, loss: nan time: 50.71ms, mfu: 0.02%
+step: 222, loss: nan time: 50.43ms, mfu: 0.02%
+step: 223, loss: nan time: 50.71ms, mfu: 0.03%
+step: 224, loss: nan time: 50.57ms, mfu: 0.03%
+step: 225, loss: nan time: 49.68ms, mfu: 0.03%
+step: 226, loss: nan time: 50.44ms, mfu: 0.03%
+step: 227, loss: nan time: 49.52ms, mfu: 0.03%
+step: 228, loss: nan time: 49.94ms, mfu: 0.03%
+step: 229, loss: nan time: 50.49ms, mfu: 0.03%
+step: 230, loss: nan time: 51.41ms, mfu: 0.03%
+step: 231, loss: nan time: 51.37ms, mfu: 0.03%
+step: 232, loss: nan time: 51.88ms, mfu: 0.03%
+step: 233, loss: nan time: 53.40ms, mfu: 0.03%
+step: 234, loss: nan time: 52.05ms, mfu: 0.03%
+step: 235, loss: nan time: 51.04ms, mfu: 0.03%
+step: 236, loss: nan time: 50.72ms, mfu: 0.03%
+step: 237, loss: nan time: 51.43ms, mfu: 0.03%
+step: 238, loss: nan time: 50.12ms, mfu: 0.03%
+step: 239, loss: nan time: 50.12ms, mfu: 0.03%
+step: 240, loss: nan time: 50.39ms, mfu: 0.03%
+step: 241, loss: nan time: 50.15ms, mfu: 0.03%
+step: 242, loss: nan time: 50.40ms, mfu: 0.03%
+step: 243, loss: nan time: 49.75ms, mfu: 0.03%
+step: 244, loss: nan time: 50.39ms, mfu: 0.03%
+step: 245, loss: nan time: 50.37ms, mfu: 0.03%
+step: 246, loss: nan time: 52.26ms, mfu: 0.03%
+step: 247, loss: nan time: 53.42ms, mfu: 0.03%
+step: 248, loss: nan time: 54.34ms, mfu: 0.03%
+step: 249, loss: nan time: 53.95ms, mfu: 0.03%
+step: 250, loss: nan time: 53.30ms, mfu: 0.02%
+step: 251, loss: nan time: 53.50ms, mfu: 0.02%
+step: 252, loss: nan time: 52.02ms, mfu: 0.02%
+step: 253, loss: nan time: 51.39ms, mfu: 0.02%
+step: 254, loss: nan time: 51.97ms, mfu: 0.02%
+step: 255, loss: nan time: 49.48ms, mfu: 0.03%
+step: 256, loss: nan time: 49.32ms, mfu: 0.03%
+step: 257, loss: nan time: 49.87ms, mfu: 0.03%
+step: 258, loss: nan time: 50.05ms, mfu: 0.03%
+step: 259, loss: nan time: 50.50ms, mfu: 0.03%
+step: 260, loss: nan time: 48.84ms, mfu: 0.03%
+step: 261, loss: nan time: 49.06ms, mfu: 0.03%
+step: 262, loss: nan time: 49.27ms, mfu: 0.03%
+step: 263, loss: nan time: 51.85ms, mfu: 0.03%
+step: 264, loss: nan time: 50.58ms, mfu: 0.03%
+step: 265, loss: nan time: 50.64ms, mfu: 0.03%
+step: 266, loss: nan time: 49.74ms, mfu: 0.03%
+step: 267, loss: nan time: 50.97ms, mfu: 0.03%
+step: 268, loss: nan time: 50.90ms, mfu: 0.03%
+step: 269, loss: nan time: 49.53ms, mfu: 0.03%
+step: 270, loss: nan time: 50.09ms, mfu: 0.03%
+step: 271, loss: nan time: 53.26ms, mfu: 0.03%
+step: 272, loss: nan time: 51.14ms, mfu: 0.03%
+step: 273, loss: nan time: 50.13ms, mfu: 0.03%
+step: 274, loss: nan time: 49.91ms, mfu: 0.03%
+step: 275, loss: nan time: 50.14ms, mfu: 0.03%
+step: 276, loss: nan time: 51.11ms, mfu: 0.03%
+step: 277, loss: nan time: 50.95ms, mfu: 0.03%
+step: 278, loss: nan time: 50.16ms, mfu: 0.03%
+step: 279, loss: nan time: 50.45ms, mfu: 0.03%
+step: 280, loss: nan time: 49.88ms, mfu: 0.03%
+step: 281, loss: nan time: 51.10ms, mfu: 0.03%
+step: 282, loss: nan time: 50.64ms, mfu: 0.03%
+step: 283, loss: nan time: 49.99ms, mfu: 0.03%
+step: 284, loss: nan time: 49.82ms, mfu: 0.03%
+step: 285, loss: nan time: 51.32ms, mfu: 0.03%
+step: 286, loss: nan time: 89.54ms, mfu: 0.02%
+step: 287, loss: nan time: 53.56ms, mfu: 0.02%
+step: 288, loss: nan time: 51.38ms, mfu: 0.02%
+step: 289, loss: nan time: 49.75ms, mfu: 0.02%
+step: 290, loss: nan time: 50.19ms, mfu: 0.02%
+step: 291, loss: nan time: 51.65ms, mfu: 0.02%
+step: 292, loss: nan time: 52.15ms, mfu: 0.02%
+step: 293, loss: nan time: 53.88ms, mfu: 0.02%
+step: 294, loss: nan time: 57.46ms, mfu: 0.02%
+step: 295, loss: nan time: 56.58ms, mfu: 0.02%
+step: 296, loss: nan time: 60.33ms, mfu: 0.02%
+step: 297, loss: nan time: 63.89ms, mfu: 0.02%
+step: 298, loss: nan time: 57.05ms, mfu: 0.02%
+step: 299, loss: nan time: 55.15ms, mfu: 0.02%
+step: 300, loss: nan time: 54.59ms, mfu: 0.02%
+step: 301, loss: nan time: 53.71ms, mfu: 0.02%
+step: 302, loss: nan time: 50.15ms, mfu: 0.02%
+step: 303, loss: nan time: 50.78ms, mfu: 0.02%
+step: 304, loss: nan time: 50.33ms, mfu: 0.02%
+step: 305, loss: nan time: 50.42ms, mfu: 0.02%
+step: 306, loss: nan time: 51.73ms, mfu: 0.02%
+step: 307, loss: nan time: 51.29ms, mfu: 0.02%
+step: 308, loss: nan time: 52.13ms, mfu: 0.02%
+step: 309, loss: nan time: 52.03ms, mfu: 0.02%
+step: 310, loss: nan time: 53.38ms, mfu: 0.02%
+step: 311, loss: nan time: 52.81ms, mfu: 0.02%
+step: 312, loss: nan time: 52.54ms, mfu: 0.02%
+step: 313, loss: nan time: 51.07ms, mfu: 0.02%
+step: 314, loss: nan time: 49.69ms, mfu: 0.02%
+step: 315, loss: nan time: 49.34ms, mfu: 0.02%
+step: 316, loss: nan time: 50.99ms, mfu: 0.02%
+step: 317, loss: nan time: 50.66ms, mfu: 0.02%
+step: 318, loss: nan time: 50.21ms, mfu: 0.03%
+step: 319, loss: nan time: 49.87ms, mfu: 0.03%
+step: 320, loss: nan time: 49.87ms, mfu: 0.03%
+step: 321, loss: nan time: 49.01ms, mfu: 0.03%
+step: 322, loss: nan time: 49.99ms, mfu: 0.03%
+step: 323, loss: nan time: 49.84ms, mfu: 0.03%
+step: 324, loss: nan time: 49.23ms, mfu: 0.03%
+step: 325, loss: nan time: 49.92ms, mfu: 0.03%
+step: 326, loss: nan time: 50.37ms, mfu: 0.03%
+step: 327, loss: nan time: 50.34ms, mfu: 0.03%
+step: 328, loss: nan time: 49.21ms, mfu: 0.03%
+step: 329, loss: nan time: 50.88ms, mfu: 0.03%
+step: 330, loss: nan time: 50.25ms, mfu: 0.03%
+step: 331, loss: nan time: 50.87ms, mfu: 0.03%
+step: 332, loss: nan time: 50.98ms, mfu: 0.03%
+step: 333, loss: nan time: 51.07ms, mfu: 0.03%
+step: 334, loss: nan time: 51.67ms, mfu: 0.03%
+step: 335, loss: nan time: 53.32ms, mfu: 0.03%
+step: 336, loss: nan time: 53.28ms, mfu: 0.03%
+step: 337, loss: nan time: 53.20ms, mfu: 0.03%
+step: 338, loss: nan time: 92.37ms, mfu: 0.02%
+step: 339, loss: nan time: 51.20ms, mfu: 0.02%
+step: 340, loss: nan time: 51.86ms, mfu: 0.02%
+step: 341, loss: nan time: 53.02ms, mfu: 0.02%
+step: 342, loss: nan time: 52.68ms, mfu: 0.02%
+step: 343, loss: nan time: 55.19ms, mfu: 0.02%
+step: 344, loss: nan time: 56.47ms, mfu: 0.02%
+step: 345, loss: nan time: 53.51ms, mfu: 0.02%
+step: 346, loss: nan time: 55.11ms, mfu: 0.02%
+step: 347, loss: nan time: 55.63ms, mfu: 0.02%
+step: 348, loss: nan time: 58.15ms, mfu: 0.02%
+step: 349, loss: nan time: 52.97ms, mfu: 0.02%
+step: 350, loss: nan time: 51.76ms, mfu: 0.02%
+step: 351, loss: nan time: 52.71ms, mfu: 0.02%
+step: 352, loss: nan time: 53.61ms, mfu: 0.02%
+step: 353, loss: nan time: 53.13ms, mfu: 0.02%
+step: 354, loss: nan time: 51.39ms, mfu: 0.02%
+step: 355, loss: nan time: 52.78ms, mfu: 0.02%
+step: 356, loss: nan time: 53.49ms, mfu: 0.02%
+step: 357, loss: nan time: 51.82ms, mfu: 0.02%
+step: 358, loss: nan time: 51.86ms, mfu: 0.02%
+step: 359, loss: nan time: 52.47ms, mfu: 0.02%
+step: 360, loss: nan time: 50.96ms, mfu: 0.02%
+step: 361, loss: nan time: 51.48ms, mfu: 0.02%
+step: 362, loss: nan time: 49.52ms, mfu: 0.02%
+step: 363, loss: nan time: 50.02ms, mfu: 0.02%
+step: 364, loss: nan time: 50.87ms, mfu: 0.02%
+step: 365, loss: nan time: 49.55ms, mfu: 0.02%
+step: 366, loss: nan time: 49.56ms, mfu: 0.03%
+step: 367, loss: nan time: 49.62ms, mfu: 0.03%
+step: 368, loss: nan time: 49.98ms, mfu: 0.03%
+step: 369, loss: nan time: 50.19ms, mfu: 0.03%
+step: 370, loss: nan time: 50.88ms, mfu: 0.03%
+step: 371, loss: nan time: 49.87ms, mfu: 0.03%
+step: 372, loss: nan time: 50.26ms, mfu: 0.03%
+step: 373, loss: nan time: 50.33ms, mfu: 0.03%
+step: 374, loss: nan time: 49.73ms, mfu: 0.03%
+step: 375, loss: nan time: 50.23ms, mfu: 0.03%
+step: 376, loss: nan time: 50.23ms, mfu: 0.03%
+step: 377, loss: nan time: 50.44ms, mfu: 0.03%
+step: 378, loss: nan time: 49.35ms, mfu: 0.03%
+step: 379, loss: nan time: 50.50ms, mfu: 0.03%
+step: 380, loss: nan time: 51.54ms, mfu: 0.03%
+step: 381, loss: nan time: 51.58ms, mfu: 0.03%
+step: 382, loss: nan time: 51.09ms, mfu: 0.03%
+step: 383, loss: nan time: 50.51ms, mfu: 0.03%
+step: 384, loss: nan time: 51.04ms, mfu: 0.03%
+step: 385, loss: nan time: 50.65ms, mfu: 0.03%
+step: 386, loss: nan time: 50.24ms, mfu: 0.03%
+step: 387, loss: nan time: 50.14ms, mfu: 0.03%
+step: 388, loss: nan time: 50.12ms, mfu: 0.03%
+step: 389, loss: nan time: 54.07ms, mfu: 0.03%
+step: 390, loss: nan time: 58.18ms, mfu: 0.03%
+step: 391, loss: nan time: 57.36ms, mfu: 0.02%
+step: 392, loss: nan time: 61.86ms, mfu: 0.02%
+step: 393, loss: nan time: 56.96ms, mfu: 0.02%
+step: 394, loss: nan time: 55.34ms, mfu: 0.02%
+step: 395, loss: nan time: 54.81ms, mfu: 0.02%
+step: 396, loss: nan time: 53.32ms, mfu: 0.02%
+step: 397, loss: nan time: 51.84ms, mfu: 0.02%
+step: 398, loss: nan time: 51.40ms, mfu: 0.02%
+step: 399, loss: nan time: 51.86ms, mfu: 0.02%
+step: 400, loss: nan time: 51.99ms, mfu: 0.02%
+step: 401, loss: nan time: 51.40ms, mfu: 0.02%
+step: 402, loss: nan time: 52.20ms, mfu: 0.02%
+step: 403, loss: nan time: 50.83ms, mfu: 0.02%
+step: 404, loss: nan time: 51.00ms, mfu: 0.02%
+step: 405, loss: nan time: 51.37ms, mfu: 0.02%
+step: 406, loss: nan time: 52.07ms, mfu: 0.02%
+step: 407, loss: nan time: 51.04ms, mfu: 0.02%
+step: 408, loss: nan time: 51.27ms, mfu: 0.02%
+step: 409, loss: nan time: 52.25ms, mfu: 0.02%
+step: 410, loss: nan time: 52.79ms, mfu: 0.02%
+step: 411, loss: nan time: 52.96ms, mfu: 0.02%
+step: 412, loss: nan time: 52.10ms, mfu: 0.02%
+step: 413, loss: nan time: 52.36ms, mfu: 0.02%
+step: 414, loss: nan time: 53.15ms, mfu: 0.02%
+step: 415, loss: nan time: 53.60ms, mfu: 0.02%
+step: 416, loss: nan time: 52.63ms, mfu: 0.02%
+step: 417, loss: nan time: 50.64ms, mfu: 0.02%
+step: 418, loss: nan time: 49.84ms, mfu: 0.02%
+step: 419, loss: nan time: 49.91ms, mfu: 0.02%
+step: 420, loss: nan time: 49.87ms, mfu: 0.03%
+step: 421, loss: nan time: 49.45ms, mfu: 0.03%
+step: 422, loss: nan time: 49.61ms, mfu: 0.03%
+step: 423, loss: nan time: 49.90ms, mfu: 0.03%
+step: 424, loss: nan time: 50.67ms, mfu: 0.03%
+step: 425, loss: nan time: 50.10ms, mfu: 0.03%
+step: 426, loss: nan time: 51.14ms, mfu: 0.03%
+step: 427, loss: nan time: 51.75ms, mfu: 0.03%
+step: 428, loss: nan time: 51.93ms, mfu: 0.03%
+step: 429, loss: nan time: 51.61ms, mfu: 0.03%
+step: 430, loss: nan time: 51.62ms, mfu: 0.03%
+step: 431, loss: nan time: 51.03ms, mfu: 0.03%
+step: 432, loss: nan time: 50.64ms, mfu: 0.03%
+step: 433, loss: nan time: 50.50ms, mfu: 0.03%
+step: 434, loss: nan time: 50.07ms, mfu: 0.03%
+step: 435, loss: nan time: 50.54ms, mfu: 0.03%
+step: 436, loss: nan time: 53.29ms, mfu: 0.03%
+step: 437, loss: nan time: 53.47ms, mfu: 0.03%
+step: 438, loss: nan time: 54.71ms, mfu: 0.03%
+step: 439, loss: nan time: 56.31ms, mfu: 0.02%
+step: 440, loss: nan time: 55.13ms, mfu: 0.02%
+step: 441, loss: nan time: 55.32ms, mfu: 0.02%
+step: 442, loss: nan time: 54.54ms, mfu: 0.02%
+step: 443, loss: nan time: 55.02ms, mfu: 0.02%
+step: 444, loss: nan time: 54.40ms, mfu: 0.02%
+step: 445, loss: nan time: 52.31ms, mfu: 0.02%
+step: 446, loss: nan time: 53.04ms, mfu: 0.02%
+step: 447, loss: nan time: 52.78ms, mfu: 0.02%
+step: 448, loss: nan time: 54.17ms, mfu: 0.02%
+step: 449, loss: nan time: 53.42ms, mfu: 0.02%
+step: 450, loss: nan time: 51.85ms, mfu: 0.02%
+step: 451, loss: nan time: 51.81ms, mfu: 0.02%
+step: 452, loss: nan time: 51.03ms, mfu: 0.02%
+step: 453, loss: nan time: 50.47ms, mfu: 0.02%
+step: 454, loss: nan time: 50.35ms, mfu: 0.02%
+step: 455, loss: nan time: 49.76ms, mfu: 0.02%
+step: 456, loss: nan time: 49.74ms, mfu: 0.02%
+step: 457, loss: nan time: 50.56ms, mfu: 0.03%
+step: 458, loss: nan time: 52.32ms, mfu: 0.02%
+step: 459, loss: nan time: 51.40ms, mfu: 0.03%
+step: 460, loss: nan time: 50.48ms, mfu: 0.03%
+step: 461, loss: nan time: 51.54ms, mfu: 0.03%
+step: 462, loss: nan time: 50.60ms, mfu: 0.03%
+step: 463, loss: nan time: 50.29ms, mfu: 0.03%
+step: 464, loss: nan time: 57.37ms, mfu: 0.02%
+step: 465, loss: nan time: 50.43ms, mfu: 0.02%
+step: 466, loss: nan time: 49.89ms, mfu: 0.03%
+step: 467, loss: nan time: 50.88ms, mfu: 0.03%
+step: 468, loss: nan time: 49.22ms, mfu: 0.03%
+step: 469, loss: nan time: 49.84ms, mfu: 0.03%
+step: 470, loss: nan time: 50.53ms, mfu: 0.03%
+step: 471, loss: nan time: 50.56ms, mfu: 0.03%
+step: 472, loss: nan time: 56.15ms, mfu: 0.03%
+step: 473, loss: nan time: 49.89ms, mfu: 0.03%
+step: 474, loss: nan time: 49.70ms, mfu: 0.03%
+step: 475, loss: nan time: 50.01ms, mfu: 0.03%
+step: 476, loss: nan time: 51.06ms, mfu: 0.03%
+step: 477, loss: nan time: 51.82ms, mfu: 0.03%
+step: 478, loss: nan time: 50.81ms, mfu: 0.03%
+step: 479, loss: nan time: 51.48ms, mfu: 0.03%
+step: 480, loss: nan time: 51.31ms, mfu: 0.03%
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 322, in train
+    _, train_loss       = self.estimate_loss('train', self.eval_key)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 288, in estimate_loss
+    key, losses = hax.fold(_step, self.EvalSteps)((key, 0.0), hax.zeros(self.EvalSteps))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/hof.py", line 129, in scanned_f
+    return scan_preconfig(init, *args, **kwargs)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/hof.py", line 88, in scanned_f
+    carry, ys = lax.scan(wrapped_fn, init, leaves, reverse=reverse, unroll=unroll)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/traceback_util.py", line 166, in reraise_with_filtered_traceback
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/lax/control_flow/loops.py", line 263, in scan
+    out = scan_p.bind(*consts, *in_flat,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/lax/control_flow/loops.py", line 1038, in scan_bind
+    return core.AxisPrimitive.bind(scan_p, *args, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 2677, in bind
+    return self.bind_with_trace(top_trace, args, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 383, in bind_with_trace
+    out = trace.process_primitive(self, map(trace.full_raise, args), params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 815, in process_primitive
+    return primitive.impl(*tracers, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 132, in apply_primitive
+    compiled_fun = xla_primitive_callable(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/util.py", line 284, in wrapper
+    return cached(config._trace_context(), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/util.py", line 277, in cached
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 223, in xla_primitive_callable
+    compiled = _xla_callable_uncached(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 253, in _xla_callable_uncached
+    return computation.compile().unsafe_call
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2323, in compile
+    executable = UnloadedMeshExecutable.from_hlo(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2645, in from_hlo
+    xla_executable, compile_options = _cached_compilation(
+                                      ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2555, in _cached_compilation
+    xla_executable = dispatch.compile_or_get_cached(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 497, in compile_or_get_cached
+    return backend_compile(backend, computation, compile_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/profiler.py", line 314, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 465, in backend_compile
+    return backend.compile(built_c, compile_options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 394, in <module>
+    main()
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/draccus/argparsing.py", line 182, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 391, in main
+    trainer.train()
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 322, in train
+    _, train_loss       = self.estimate_loss('train', self.eval_key)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/Desktop/ML Projects/GPT_nano/train.py", line 288, in estimate_loss
+    key, losses = hax.fold(_step, self.EvalSteps)((key, 0.0), hax.zeros(self.EvalSteps))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/hof.py", line 129, in scanned_f
+    return scan_preconfig(init, *args, **kwargs)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/haliax/hof.py", line 88, in scanned_f
+    carry, ys = lax.scan(wrapped_fn, init, leaves, reverse=reverse, unroll=unroll)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/traceback_util.py", line 166, in reraise_with_filtered_traceback
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/lax/control_flow/loops.py", line 263, in scan
+    out = scan_p.bind(*consts, *in_flat,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/lax/control_flow/loops.py", line 1038, in scan_bind
+    return core.AxisPrimitive.bind(scan_p, *args, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 2677, in bind
+    return self.bind_with_trace(top_trace, args, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 383, in bind_with_trace
+    out = trace.process_primitive(self, map(trace.full_raise, args), params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/core.py", line 815, in process_primitive
+    return primitive.impl(*tracers, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 132, in apply_primitive
+    compiled_fun = xla_primitive_callable(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/util.py", line 284, in wrapper
+    return cached(config._trace_context(), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/util.py", line 277, in cached
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 223, in xla_primitive_callable
+    compiled = _xla_callable_uncached(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 253, in _xla_callable_uncached
+    return computation.compile().unsafe_call
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2323, in compile
+    executable = UnloadedMeshExecutable.from_hlo(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2645, in from_hlo
+    xla_executable, compile_options = _cached_compilation(
+                                      ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 2555, in _cached_compilation
+    xla_executable = dispatch.compile_or_get_cached(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 497, in compile_or_get_cached
+    return backend_compile(backend, computation, compile_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/profiler.py", line 314, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rohanmehta/anaconda3/envs/jax/lib/python3.11/site-packages/jax/_src/dispatch.py", line 465, in backend_compile
+    return backend.compile(built_c, compile_options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+step: 481, loss: nan time: 49.61ms, mfu: 0.03%
+step: 482, loss: nan time: 50.86ms, mfu: 0.03%
+step: 483, loss: nan time: 50.52ms, mfu: 0.03%
+step: 484, loss: nan time: 53.68ms, mfu: 0.03%
+step: 485, loss: nan time: 55.69ms, mfu: 0.03%
+step: 486, loss: nan time: 54.86ms, mfu: 0.02%
+step: 487, loss: nan time: 55.10ms, mfu: 0.02%
+step: 488, loss: nan time: 57.06ms, mfu: 0.02%
+step: 489, loss: nan time: 56.79ms, mfu: 0.02%
+step: 490, loss: nan time: 55.71ms, mfu: 0.02%
+step: 491, loss: nan time: 55.30ms, mfu: 0.02%
+step: 492, loss: nan time: 53.65ms, mfu: 0.02%
+step: 493, loss: nan time: 50.75ms, mfu: 0.02%
+step: 494, loss: nan time: 50.15ms, mfu: 0.02%
+step: 495, loss: nan time: 50.79ms, mfu: 0.02%
+step: 496, loss: nan time: 51.38ms, mfu: 0.02%
+step: 497, loss: nan time: 51.66ms, mfu: 0.02%
+step: 498, loss: nan time: 51.20ms, mfu: 0.02%
+step: 499, loss: nan time: 50.42ms, mfu: 0.02%
+step: 500, loss: nan time: 50.39ms, mfu: 0.02%
