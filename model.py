@@ -21,7 +21,7 @@ from levanter.compat.torch_serialization import (
 
 from typing import Optional
 from dataclasses import dataclass
-from transformers import GPT2LMHeadModel
+from jaxtyping import Array
 
 
 @dataclass
@@ -356,31 +356,63 @@ class GPT2(eqx.Module, Serializable):
         padded_array = jnp.pad(seq, (self.config.Pos.size - len(seq), 0), constant_values=-1)
         return padded_array
         
-    def generate( #rewrite as a fold and jit for max efficiency?
+
+    def generate(
         self,
-        seq: jnp.ndarray,
-        max_new_tokens: int,
+        seq: Array = jnp.array([0]),
+        max_new_tokens: int = 50,
         temperature: float = 1.0,
         top_k: Optional[int] = None, 
         *,
         key
-    ) -> jnp.ndarray:
-        for _ in range(max_new_tokens):
-            Pos, Vocab = self.config.Pos, self.config.Vocab
+    ) -> Array: 
+        # self.inference_mode() how to set this????
+        print(self.inference)
+        Pos, Vocab = self.config.Pos, self.config.Vocab
+        NewTokens  = hax.Axis('new_tokens', size=max_new_tokens)
+        keys      = jr.split(key, max_new_tokens)
 
-            seq          = hax.named(self._pad(seq[-Pos.size:]), (Pos,))
-            logits       = self(seq, key=key)
+        def _gen(seq, key):
+            print(seq, seq.shape)
+            logits       = self(hax.named(seq, (Pos,)), key=key)
             final_logits = logits[Pos, -1, Vocab, :] / temperature # look at prediction from last token
 
             if top_k is not None:
                 final_logits = hax.top_k(final_logits, axis=Vocab, k=top_k)
-
-            key, subkey  = jr.split(key)
+            
+            _, subkey  = jr.split(key)
             next_token   = hax.random.categorical(logits=final_logits, axis=Vocab, key=subkey)
             next_token   = jnp.expand_dims(next_token.array, axis=0) # reshape next_token to [next_token]
             seq          = jnp.concatenate([seq, next_token])
 
-        return seq
+            return seq[-Pos.size:], next_token 
+
+        return hax.scan(_gen, NewTokens)(self._pad(seq)[-Pos.size:], keys)
+
+    # def generate( #rewrite as a fold and jit for max efficiency?
+    #     self,
+    #     seq: jnp.ndarray,
+    #     max_new_tokens: int,
+    #     temperature: float = 1.0,
+    #     top_k: Optional[int] = None, 
+    #     *,
+    #     key
+    # ) -> jnp.ndarray:
+    #     for _ in range(max_new_tokens):
+    #         Pos, Vocab = self.config.Pos, self.config.Vocab
+
+    #         seq          = hax.named(self._pad(seq[-Pos.size:]), (Pos,))
+    #         logits       = self(seq, key=key)
+    #         final_logits = logits[Pos, -1, Vocab, :] / temperature # look at prediction from last token
+
+ 
+
+    #         key, subkey  = jr.split(key)
+    #         next_token   = hax.random.categorical(logits=final_logits, axis=Vocab, key=subkey)
+    #         next_token   = jnp.expand_dims(next_token.array, axis=0) # reshape next_token to [next_token]
+    #         seq          = jnp.concatenate([seq, next_token])
+
+    #     return seq
 
     def estimate_mfu(self, fwdbwd_per_iter: int, dt: float) -> float:
         """Compute model's flop utilization rate """
